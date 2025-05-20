@@ -1,14 +1,21 @@
 # migration
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to run database migrations from a list of SQL files.
 
 ## Usage
 
-FIXME
+```
+(run-migrations
+    <jdbc-connection>
+    :current-revision-fn  <function to get current revision number>
+    :update-revision-fn   <function to update the current revision number>
+    :init-fn              <function to initialize the database>
+    :target-revision      <the revision to migrate to from the current-revision>)
+```
 
 ## License
 
-Copyright © 2025 FIXME
+Copyright © 2025 Patrick Roche
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
