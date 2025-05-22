@@ -21,7 +21,7 @@
   (jdbc/with-transaction [tx db]
                          (init-fn)
                          (let [current-rev (current-revision-fn)
-                               migrations (parser/parse-migrations (parser/get-relevant-migrations (get-migration-files) current-rev target-revision))]
+                               migrations (parser/parse-migrations (parser/get-relevant-migrations migration-files current-rev target-revision))]
                            (loop [to-run migrations]
                              (if (seq to-run)
                                (let
